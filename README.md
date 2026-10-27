@@ -1,32 +1,12 @@
-# Deguang Li — academic website
+# Deguang Li Academic Website — V2
 
-A lightweight static website (HTML, CSS, JavaScript), with all images hosted locally. No build system, paid hosting, tracking, or third-party fonts required.
+Upload the **contents of this folder**, not the folder itself, to the root of `Deguang99.github.io`. The root must contain `index.html`, `style.css`, `script.js`, and `assets/`. GitHub Settings → Pages → Deploy from a branch → main → /(root).
 
-## Publish with GitHub Pages (beginner-friendly)
-
-1. Download and unzip the website package.
-2. Open your GitHub repository `Deguang99/Deguang99.github.io`.
-3. Select **Add file → Upload files** (or upload from the repository file view).
-4. Drag **the contents** of the `deguang-website` folder into the repository, including `index.html`, `style.css`, `script.js`, and the entire `assets` folder. Do **not** upload the enclosing `deguang-website` folder as one extra level.
-5. Select **Commit changes**.
-6. Under **Settings → Pages**, select **Deploy from a branch**, branch `main`, folder `/ (root)`; save. If already configured, no changes needed.
-7. Visit `https://deguang99.github.io/` after deployment (often a few minutes).
-
-## Updating
-
-- Text: edit `index.html` (use GitHub's pencil icon).
-- Appearance: edit `style.css`.
-- Interactions, map notes, heatmap labels: edit `script.js`.
-- Images: replace matching files in `assets`.
-- CV: replace `assets/Deguang_Li_CV.pdf` with a current public-safe PDF.
-
-## Publication checklist
-
-- Confirm the selected heatmap labels against the original QGIS project; the Paris slides showed four titles for five supplied exports, so only four have been used.
-- Check the historic-map, modern-map, and reproduced-source attribution/licensing before public release.
-- Approximate annotated map marker positions are visual references to the user's presentation, **not geospatial measurements**. Verify or remove any marker that doesn't align.
-- Confirm publication statuses, dissertation supervisor names, and institutional details before applying for fellowships.
-- Review the CV for contact details and other information before posting publicly.
-- GitHub Pages availability in mainland China can vary; this build avoids external CDNs but cannot guarantee access.
-
-This site intentionally does not publish the research corpus or archival reproductions as a downloadable dataset.
+## Notes
+- The academic journey map is a schematic overview, not a precise cartographic representation. City pins are interactive.
+- GIS markers use approximate image-relative positions inferred from presentation screenshots; review visually before public launch.
+- Low-resolution GIS heatmaps are retained from V1. For publication-quality clarity, replace `assets/l1.webp` etc. with higher-resolution exports from QGIS, keeping filenames.
+- The reader-card photograph is **not** included in V1 source files and was therefore not added. It can replace a gallery image after personal details and barcodes are obscured.
+- Under-review article titles and journal pairings are omitted on the public website to protect anonymity.
+- The CV PDF is updated from the uploaded final CV if conversion is available.
+- World-map graphic is a simplified illustrative schematic.
