@@ -22,3 +22,17 @@ nav a{font-size:15px;letter-spacing:.015em}.site-header nav{gap:24px}p{font-size
 .press-image-wrap{position:relative;width:100%;line-height:0;}
 .press-image-wrap > #press-image{display:block;width:100%;height:auto;max-height:none;object-fit:fill;}
 .press-image-wrap > .press-hotspots{position:absolute;inset:0;width:100%;height:100%;}
+
+/* v2 schematic world map, independent of GIS projection */
+#journey-leaflet.journey-schematic{height:auto!important;aspect-ratio:900/460;min-height:0;background:#e8e7dc;touch-action:none;cursor:grab}
+#journey-leaflet.journey-schematic svg{display:block;width:100%;height:100%;overflow:hidden}
+.schematic-pin{stroke:#fff;stroke-width:1.5;cursor:pointer;vector-effect:non-scaling-stroke;transition:fill .15s}
+.schematic-pin.education{fill:#2e5a78}.schematic-pin.archives{fill:#c18a37}.schematic-pin.conferences{fill:#a44b4a}
+.schematic-pin:hover,.schematic-pin.active{stroke:#262626;stroke-width:2.4}
+
+/* GIS II: distinguish categories of publication-specific London annotations. */
+.heat-pin.printer{background:#8764a0!important}
+.heat-pin.seller{background:#bb6c4d!important}
+.heat-pin.contributor{background:#548d67!important}
+.heat-pin.mentioned{background:#a18b42!important}
+.heat-pin:focus-visible{outline:2px solid #1a2925;outline-offset:4px}
