@@ -9,7 +9,7 @@ function showJourney(p){let body=p[3]==='archives'&&archiveDetails[p[0]]?archive
 // Restored v2 schematic map. All positions are intentionally illustrative, not GIS coordinates.
 const journeySvg=document.getElementById('journey-svg');
 const svgPins=document.getElementById('journey-svg-pins');
-let journeyView={x:325,y:42,w:330,h:220};
+let journeyView={x:325,y:67.67,w:330,h:168.67};
 const schematicPlaces={
 'Beijing':[737,147],'Paris':[463,151],'Cambridge':[443,129],'London':[450,145],
 'Chatsworth':[439,120],'Chippenham':[434,150],'Plymouth':[428,161],

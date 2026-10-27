@@ -44,3 +44,8 @@ nav a{font-size:15px;letter-spacing:.015em}.site-header nav{gap:24px}p{font-size
 .schematic-pin.country-turkey{fill:#6b799d}
 .schematic-pin.country-usa{fill:#65835a}
 .schematic-pin{stroke-width:1.35;vector-effect:non-scaling-stroke}
+
+/* v7.9: SVG viewport and its outer map share exactly one aspect ratio; no blank band. */
+.journey-map{height:auto!important;min-height:0!important;aspect-ratio:900/460;overflow:hidden}
+#journey-leaflet.journey-schematic{position:absolute;inset:0;width:100%;height:100%!important;aspect-ratio:auto!important;min-height:0!important}
+#journey-leaflet.journey-schematic svg{position:absolute;inset:0;display:block;width:100%;height:100%;aspect-ratio:auto}
