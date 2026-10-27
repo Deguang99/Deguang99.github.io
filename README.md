@@ -10,3 +10,7 @@ Upload the **contents of this folder**, not the folder itself, to the root of `D
 - Under-review article titles and journal pairings are omitted on the public website to protect anonymity.
 - The CV PDF is updated from the uploaded final CV if conversion is available.
 - World-map graphic is a simplified illustrative schematic.
+
+
+## v4 heatmap image update
+Eight heatmaps replaced by user-supplied 1536×1089 JPEG originals (l1–l4 and p1–p4). The files are copied without resizing or recompression. Existing interactive annotations are unchanged and require review.
