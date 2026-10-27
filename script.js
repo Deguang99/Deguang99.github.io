@@ -3,7 +3,7 @@ const cities={london:{title:'London, 1811–1812',img:'london',sites:[{x:21.4,y:
 const press={london:[['l1','Philosophical Magazine & Philosophical Transactions'],['l3','Morning Chronicle'],['l4','The Globe']],paris:[['p1','Journal de physique, de chimie et d’histoire naturelle'],['p2',"Journal de l’Empire"],['p4','Journal de Paris']]};let pressCity='london',pressIndex=0;function renderPress(){const list=document.getElementById('press-list');list.innerHTML='';press[pressCity].forEach(([img,title],i)=>{let b=document.createElement('button');b.className='press-option'+(i===pressIndex?' active':'');b.innerHTML=`<span>0${i+1}</span> <i>${title.replaceAll('&','&amp;')}</i>`;b.onclick=()=>{pressIndex=i;renderPress()};list.append(b)});let [img,title]=press[pressCity][pressIndex],el=document.getElementById('press-image');el.style.opacity='.25';setTimeout(()=>{el.src=`assets/${img}-hires.jpeg`;el.alt=`Spatial frequency heatmap: ${title}`;document.getElementById('press-caption').innerHTML=`<i>${title.replaceAll('&','&amp;')}</i> · ${pressCity==='london'?'London':'Paris'}`;el.style.opacity='1'},130)}document.querySelectorAll('[data-press-city]').forEach(b=>b.onclick=()=>{pressCity=b.dataset.pressCity;pressIndex=0;document.querySelectorAll('[data-press-city]').forEach(x=>x.classList.toggle('active',x===b));renderPress()});renderPress();const box=document.getElementById('lightbox');document.getElementById('expand-map').onclick=()=>{document.getElementById('lightbox-image').src=document.getElementById('city-map').src;box.hidden=false};function closeBox(){box.hidden=true}document.getElementById('close-lightbox').onclick=closeBox;box.addEventListener('click',e=>{if(e.target===box)closeBox()});addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
 
 // Academic journey: schematic map, not a geographic GIS layer.
-const journeyPlaces=[['Beijing',116.4,39.9,'education','Tsinghua University · BA and MPhil'],['Paris',2.35,48.86,'education','Sciences Po · exchange studies'],['Cambridge',.12,52.2,'education','University of Cambridge · PhD in History'],['London',-.13,51.5,'archives','Archives and research libraries'],['Chatsworth',-1.62,53.23,'archives','Archival research'],['Chippenham',-2.12,51.46,'archives','Archival research'],['Plymouth',-4.14,50.37,'archives','Archival research'],['Redruth',-5.23,50.23,'archives','Archival research'],['Wigston',-1.1,52.58,'archives','Archival research'],['Bath',-2.36,51.38,'archives','Archival research'],['Aylesbury',-.81,51.82,'archives','Waddesdon Archive'],['Glasgow',-4.25,55.86,'archives','Archival research'],['Edinburgh',-3.19,55.95,'conferences','ESHS/HSS joint conference · 2026'],['Edinburgh',-3.19,55.95,'archives','National Library of Scotland'],['Paris',2.35,48.86,'archives','Observatoire de Paris and other collections'],['Reims',4.03,49.26,'archives','Archival research'],['Marseille',5.37,43.3,'archives','Archival research'],['Avignon',4.81,43.95,'archives','Archival research'],['Nice',7.26,43.71,'archives','Archival research'],['Bayeux',-.7,49.28,'archives','Archival research'],['Besançon',6.03,47.24,'archives','Archival research'],['Rouen',1.1,49.44,'archives','Archival research'],['Ollioules',5.85,43.14,'archives','Archival research'],['Cambridge',.12,52.2,'conferences','Six research talks and conferences'],['London',-.13,51.5,'conferences','IHR seminar · 2025'],['Istanbul',28.98,41.01,'conferences','ISIH conference · 2026'],['Austin, Texas',-97.74,30.27,'archives','Harry Ransom Center'],['Oxford',-1.25,51.75,'archives','Weston Library, Bodleian Libraries']];let journeyFilter='all';let journeyMap=null;let journeyLayers=[];const jDetail=document.getElementById('journey-detail');
+const journeyPlaces=[['Beijing',116.4,39.9,'education','Tsinghua University · BA and MPhil'],['Paris',2.35,48.86,'education','Sciences Po · exchange studies'],['Cambridge',.12,52.2,'education','University of Cambridge · PhD in History'],['Cambridge',.12,52.2,'archives','Cambridge University Library; Fitzwilliam Museum; Wren Library'],['London',-.13,51.5,'archives','Archives and research libraries'],['Chatsworth',-1.62,53.23,'archives','Archival research'],['Chippenham',-2.12,51.46,'archives','Archival research'],['Plymouth',-4.14,50.37,'archives','Archival research'],['Redruth',-5.23,50.23,'archives','Archival research'],['Wigston',-1.1,52.58,'archives','Archival research'],['Bath',-2.36,51.38,'archives','Archival research'],['Aylesbury',-.81,51.82,'archives','Waddesdon Archive'],['Glasgow',-4.25,55.86,'archives','Archival research'],['Edinburgh',-3.19,55.95,'conferences','ESHS/HSS joint conference · 2026'],['Edinburgh',-3.19,55.95,'archives','National Library of Scotland'],['Paris',2.35,48.86,'archives','Observatoire de Paris and other collections'],['Reims',4.03,49.26,'archives','Archival research'],['Marseille',5.37,43.3,'archives','Archival research'],['Avignon',4.81,43.95,'archives','Archival research'],['Nice',7.26,43.71,'archives','Archival research'],['Bayeux',-.7,49.28,'archives','Archival research'],['Besançon',6.03,47.24,'archives','Archival research'],['Rouen',1.1,49.44,'archives','Archival research'],['Ollioules',5.85,43.14,'archives','Archival research'],['Cambridge',.12,52.2,'conferences','Six research talks and conferences'],['London',-.13,51.5,'conferences','IHR seminar · 2025'],['Istanbul',28.98,41.01,'conferences','ISIH conference · 2026'],['Austin, Texas',-97.74,30.27,'archives','Harry Ransom Center'],['Oxford',-1.25,51.75,'archives','Weston Library, Bodleian Libraries']];let journeyFilter='all';let journeyMap=null;let journeyLayers=[];const jDetail=document.getElementById('journey-detail');
 const talksByCity={Cambridge:[['2026-03','Cities Symposium'],['2025','Newnham History Forum'],['2025','Newnham Graduate Conference'],['2025','French Graduate Conference'],['2025','PhD Presentation Day'],['2024','Material Culture Forum']],London:[['2025','IHR British History in the Long Eighteenth Century Seminar']],Edinburgh:[['2026-07','ESHS/HSS Joint Conference']],Istanbul:[['2026-09','International Society for Intellectual History Conference']]};
 function showJourney(p){let body=p[3]==='archives'&&archiveDetails[p[0]]?archiveDetails[p[0]].map(x=>'• '+x).join('<br>'):p[3]==='conferences'&&talksByCity[p[0]]?talksByCity[p[0]].map(x=>'• '+x[0]+' · '+x[1]).join('<br>'):p[4];jDetail.innerHTML='<strong>'+p[0]+'</strong><br><small>'+p[3].toUpperCase()+'</small><br>'+body}
 // Restored v2 schematic map. All positions are intentionally illustrative, not GIS coordinates.
@@ -11,25 +11,44 @@ const journeySvg=document.getElementById('journey-svg');
 const svgPins=document.getElementById('journey-svg-pins');
 let journeyView={x:325,y:67.67,w:330,h:168.67};
 const schematicPlaces={
-'Beijing':[737,147],'Paris':[463,151],'Cambridge':[443,129],'London':[450,145],
-'Chatsworth':[439,120],'Chippenham':[434,150],'Plymouth':[428,161],
-'Redruth':[420,163],'Wigston':[446,136],'Bath':[433,151],
-'Aylesbury':[438,143],'Glasgow':[429,108],'Edinburgh':[439,108],
-'Reims':[471,149],'Marseille':[485,174],'Avignon':[473,166],
-'Nice':[484,169],'Bayeux':[452,155],
-'Besançon':[483,152],'Rouen':[457,146],'Ollioules':[480,176],
+'Beijing':[737,147],'Paris':[487,163],'Cambridge':[439,118],'London':[440,137],
+'Chatsworth':[428,110],'Chippenham':[423,143],'Plymouth':[414,155],
+'Redruth':[405,162],'Wigston':[439,125],'Bath':[422,146],
+'Aylesbury':[430,133],'Glasgow':[425,99],'Edinburgh':[435,96],
+'Reims':[505,156],'Marseille':[509,189],'Avignon':[500,181],
+'Nice':[522,188],'Bayeux':[466,158],
+'Besançon':[513,167],'Rouen':[476,151],'Ollioules':[515,193],
 'Istanbul':[540,181],'Austin, Texas':[171,151],
-'Oxford':[439,140],
-'Aylesbury':[438,143]};
+'Oxford':[427,136]};
 const journeyCountry={Beijing:'china',Istanbul:'turkey','Austin, Texas':'usa',Paris:'france',Reims:'france',Marseille:'france',Avignon:'france',Nice:'france',Bayeux:'france',Besançon:'france',Rouen:'france',Ollioules:'france'};
-const schematicOffsets={education:[0,0],archives:[5,5],conferences:[-5,-5]};
-function journeyRender(){svgPins.innerHTML='';let seen={};journeyPlaces.filter(p=>journeyFilter==='all'||p[3]===journeyFilter).forEach(p=>{
-const xy=schematicPlaces[p[0]];if(!xy)return;
-const key=p[0]+'|'+p[3],n=seen[key]||0;seen[key]=n+1;
-const offset=schematicOffsets[p[3]]||[0,0],x=xy[0]+offset[0]+(n%3)*5,y=xy[1]+offset[1]+Math.floor(n/3)*5;
-const ns='http://www.w3.org/2000/svg';let c=document.createElementNS(ns,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r','3.3');c.setAttribute('class','schematic-pin '+p[3]+' country-'+(journeyCountry[p[0]]||'uk'));c.setAttribute('tabindex','0');c.setAttribute('role','button');c.setAttribute('aria-label',p[0]+' — '+p[3]);let label=document.createElementNS(ns,'title');label.textContent=p[0]+' — '+p[3];c.append(label);
-c.addEventListener('click',()=>{svgPins.querySelectorAll('.active').forEach(e=>e.classList.remove('active'));c.classList.add('active');showJourney(p)});
-c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.dispatchEvent(new Event('click'))}});svgPins.append(c)})}
+// One marker per city. Where a city has multiple activities, combine them in one detail card.
+function showJourneyCity(city, entries){
+const headings={education:'Education',archives:'Archives',conferences:'Conferences'};
+let sections=entries.map(p=>{
+const type=p[3];
+const lines=type==='archives'&&archiveDetails[city]?archiveDetails[city]:type==='conferences'&&talksByCity[city]?talksByCity[city].map(t=>t[0]+' · '+t[1]):[p[4]];
+return '<div class="journey-detail-section"><small>'+headings[type]+'</small><div>'+lines.map(x=>'• '+x).join('<br>')+'</div></div>';
+});
+jDetail.innerHTML='<strong>'+city+'</strong>'+sections.join('');
+}
+function journeyRender(){svgPins.innerHTML='';
+const grouped=new Map();
+journeyPlaces.filter(p=>journeyFilter==='all'||p[3]===journeyFilter).forEach(p=>{
+if(!grouped.has(p[0]))grouped.set(p[0],[]);
+grouped.get(p[0]).push(p);
+});
+for(const [city,entries] of grouped){
+const xy=schematicPlaces[city];if(!xy)continue;
+const ns='http://www.w3.org/2000/svg';const c=document.createElementNS(ns,'circle');
+c.setAttribute('cx',xy[0]);c.setAttribute('cy',xy[1]);c.setAttribute('r','3.3');
+c.setAttribute('class','schematic-pin country-'+(journeyCountry[city]||'uk'));
+c.setAttribute('tabindex','0');c.setAttribute('role','button');
+c.setAttribute('aria-label',city+' — '+entries.map(p=>p[3]).join(', '));
+const label=document.createElementNS(ns,'title');label.textContent=city+' — '+entries.map(p=>p[3]).join(', ');c.append(label);
+const select=()=>{svgPins.querySelectorAll('.active').forEach(e=>e.classList.remove('active'));c.classList.add('active');showJourneyCity(city,entries)};
+c.addEventListener('click',select);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select()}});
+svgPins.append(c);
+}}
 function applyJourneyView(){journeySvg.setAttribute('viewBox',[journeyView.x,journeyView.y,journeyView.w,journeyView.h].join(' '));journeySvg.querySelectorAll('.schematic-pin').forEach(c=>c.setAttribute('r',Math.max(2.5,3.3*journeyView.w/330)))}
 function journeyZoomAt(factor){let w=Math.max(110,Math.min(900,journeyView.w*factor));let h=w*460/900;let cx=journeyView.x+journeyView.w/2,cy=journeyView.y+journeyView.h/2;journeyView={x:cx-w/2,y:cy-h/2,w,h};applyJourneyView()}
 document.getElementById('journey-plus').onclick=()=>journeyZoomAt(.78);

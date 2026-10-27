@@ -49,3 +49,6 @@ nav a{font-size:15px;letter-spacing:.015em}.site-header nav{gap:24px}p{font-size
 .journey-map{height:auto!important;min-height:0!important;aspect-ratio:900/460;overflow:hidden}
 #journey-leaflet.journey-schematic{position:absolute;inset:0;width:100%;height:100%!important;aspect-ratio:auto!important;min-height:0!important}
 #journey-leaflet.journey-schematic svg{position:absolute;inset:0;display:block;width:100%;height:100%;aspect-ratio:auto}
+
+/* City details can show several categories under a single map marker. */
+.journey-detail-section{margin-top:12px}.journey-detail-section small{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--wine);margin-bottom:4px}
