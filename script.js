@@ -62,58 +62,59 @@ function heatPoint(x,y,name,type){return {...canvasToPercent(x,y),name,type,sour
 // Coordinates are supplied on the original (0,43)–(1140,853) map canvas.
 const londonHeatSites={
  l1:[
-  heatPoint(291,474,"Cleveland Row, St James's, London · printer: W. Bulmer and Co.",'printer'),
-  heatPoint(314,464,'Pall Mall, London · print seller: G. and W. Nicol','seller'),
-  heatPoint(404,434,'Royal Society · scientific institution','science'),
-  heatPoint(470,410,'Shoe Lane, London · printer: Richard Taylor and Co.','printer'),
-  heatPoint(332,323,'Somers Town · article contributor','contributor'),
-  heatPoint(752,176,'Clapton, Hackney, London · article contributor','contributor'),
-  heatPoint(1052,622,'Royal Greenwich Observatory · scientific institution','science')
+  heatPoint(291,474,"Cleveland Row, St James's, London · Printer: W. Bulmer and Co.",'printer'),
+  heatPoint(314,464,'Pall Mall, London · Print seller: G. and W. Nicol','seller'),
+  heatPoint(404,434,'Royal Society · Scientific institution','science'),
+  heatPoint(470,410,'Shoe Lane, London · Printer: Richard Taylor and Co.','printer'),
+  heatPoint(332,323,'Somers Town · Article contributor','contributor'),
+  heatPoint(752,176,'Clapton, Hackney, London · Article contributor','contributor'),
+  heatPoint(1052,622,'Royal Greenwich Observatory · Scientific institution','science')
  ],
  l3:[
-  heatPoint(264,452,'Bond Street, London · article contributor','contributor'),
-  heatPoint(328,450,'Theatre Royal, Haymarket · theatre','theatre'),
-  heatPoint(491,481,'Nelson Square, London · article contributor','contributor'),
-  heatPoint(483,503,'Surrey Theatre · theatre','theatre'),
-  heatPoint(496,422,'39 Ludgate Street · print seller: J. Mawman','seller'),
-  heatPoint(330,416,'Soho Square · print seller: Dulau and Co.','seller'),
-  heatPoint(580,419,'Old Broad Street · print seller: Bobsey','seller'),
-  heatPoint(1052,622,'Royal Greenwich Observatory · scientific institution','science'),
-  heatPoint(404,434,'Royal Society · scientific institution','science'),
-  heatPoint(581,422,'Exchange, London · article contributor','contributor'),
-  heatPoint(331,459,'Piccadilly, London · print seller: Hatchard','seller')
+  heatPoint(264,452,'Bond Street, London · Article contributor','contributor'),
+  heatPoint(328,450,'Theatre Royal, Haymarket · Theatre','theatre'),
+  heatPoint(491,481,'Nelson Square, London · Article contributor','contributor'),
+  heatPoint(483,503,'Surrey Theatre · Theatre','theatre'),
+  heatPoint(496,422,'39 Ludgate Street · Print seller: J. Mawman','seller'),
+  heatPoint(330,416,'Soho Square · Print seller: Dulau and Co.','seller'),
+  heatPoint(580,419,'Old Broad Street · Print seller: Bobsey','seller'),
+  heatPoint(1052,622,'Royal Greenwich Observatory · Scientific institution','science'),
+  heatPoint(404,434,'Royal Society · Scientific institution','science'),
+  heatPoint(581,422,'Exchange, London · Article contributor','contributor'),
+  heatPoint(331,459,'Piccadilly, London · Print seller: Hatchard','seller')
  ],
  l4:[
-  heatPoint(496,422,'39 Ludgate Street · print seller: J. Mawman','seller'),
-  heatPoint(330,416,'Soho Square · print seller: Dulau and Co.','seller'),
-  heatPoint(580,419,'Old Broad Street · print seller: Bobsey','seller'),
-  heatPoint(1052,622,'Royal Greenwich Observatory · scientific institution','science'),
-  heatPoint(752,176,'Clapton, Hackney, London · article contributor','contributor'),
-  heatPoint(286,379,'55 London Street, Fitzroy Square, London · article contributor','contributor'),
-  heatPoint(272,280,'Camden Town, London · site of comet anecdote','mentioned'),
-  heatPoint(288,464,"St James's Street, London · site of observation",'mentioned')
+  heatPoint(496,422,'39 Ludgate Street · Print seller: J. Mawman','seller'),
+  heatPoint(330,416,'Soho Square · Print seller: Dulau and Co.','seller'),
+  heatPoint(580,419,'Old Broad Street · Print seller: Bobsey','seller'),
+  heatPoint(1052,622,'Royal Greenwich Observatory · Scientific institution','science'),
+  heatPoint(752,176,'Clapton, Hackney, London · Article contributor','contributor'),
+  heatPoint(286,379,'55 London Street, Fitzroy Square, London · Article contributor','contributor'),
+  heatPoint(272,280,'Camden Town, London · Site of comet anecdote','mentioned'),
+  heatPoint(288,464,"St James's Street, London · site of observation",'mentioned'),
+  heatPoint(386,435,'Southampton Street, Strand, London · Printer: John Bell','printer')
  ]
 };
 // Publication-specific sites; every position is on the original 1140 × 810 canvas.
 // Labels use the pattern "Place · role: person / activity" across both cities.
 const parisHeatSites={
  p1:[
-  heatPoint(553,455,'57 Quai des Augustins, Paris · print seller: Mme veuve Courcier','seller'),
-  heatPoint(503,666,'Observatoire de Paris · scientific institution','science')
+  heatPoint(553,455,'57 Quai des Augustins, Paris · Print seller: Mme veuve Courcier','seller'),
+  heatPoint(503,666,'Observatoire de Paris · Scientific institution','science')
  ],
  p2:[
-  heatPoint(503,666,'Observatoire de Paris · scientific institution','science'),
-  heatPoint(568,296,'Théâtre des Variétés · theatre','theatre'),
-  heatPoint(804,353,'Cirque Olympique · theatre','theatre'),
-  heatPoint(556,426,'17 Rue des Prêtres-Saint-Germain-l’Auxerrois · printer: Le Normant','printer'),
-  heatPoint(499,446,'Institut de France · scientific institution','science'),
-  heatPoint(450,228,'34 Rue de Clichy · theatre: Nouveau Tivoli (Jardin de Richelieu)','theatre'),
-  heatPoint(492,448,'5 Rue Bonaparte · astronomical demonstration: Lebreton','theatre')
+  heatPoint(503,666,'Observatoire de Paris · Scientific institution','science'),
+  heatPoint(568,296,'Théâtre des Variétés · Theatre','theatre'),
+  heatPoint(804,353,'Cirque Olympique · Theatre','theatre'),
+  heatPoint(556,426,'17 Rue des Prêtres-Saint-Germain-l’Auxerrois · Printer: Le Normant','printer'),
+  heatPoint(499,446,'Institut de France · Scientific institution','science'),
+  heatPoint(450,228,'34 Rue de Clichy · Theatre: Nouveau Tivoli (Jardin de Richelieu)','theatre'),
+  heatPoint(492,448,'5 Rue Bonaparte · Astronomical demonstration: Lebreton','theatre')
  ],
  p4:[
-  heatPoint(568,296,'Théâtre des Variétés · theatre','theatre'),
-  heatPoint(804,353,'Cirque Olympique · theatre','theatre'),
-  heatPoint(503,666,'Observatoire de Paris · scientific institution','science')
+  heatPoint(568,296,'Théâtre des Variétés · Theatre','theatre'),
+  heatPoint(804,353,'Cirque Olympique · Theatre','theatre'),
+  heatPoint(503,666,'Observatoire de Paris · Scientific institution','science')
  ]
 };
 const heatSites={...londonHeatSites,...parisHeatSites};
