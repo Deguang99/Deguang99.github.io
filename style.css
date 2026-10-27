@@ -57,3 +57,7 @@ nav a{font-size:15px;letter-spacing:.015em}.site-header nav{gap:24px}p{font-size
 .legend .legend-items{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
 .legend .legend-items>span{display:block;line-height:1.5}
 .portrait-caption{position:relative;margin:13px 0 0;max-width:100%;padding-right:8px;font-size:11px;line-height:1.6;color:var(--muted);letter-spacing:.015em}
+
+/* v7.14: right-aligned, two-line portrait caption clear of the overlapping name card. */
+.portrait-caption{margin:13px 0 0 44%;max-width:56%;padding-right:0;text-align:right;line-height:1.65}
+@media(max-width:600px){.portrait-caption{margin:13px 0 0 auto;max-width:100%;padding-bottom:52px;text-align:right}}
