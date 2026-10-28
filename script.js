@@ -18,7 +18,7 @@ const schematicPlaces={
 'Reims':[505,156],'Marseille':[509,189],'Avignon':[500,181],
 'Nice':[522,188],'Bayeux':[466,158],
 'Besançon':[513,167],'Rouen':[476,151],'Ollioules':[515,193],
-'Istanbul':[540,181],'Austin, TX':[171,151],'Cambridge, MA':[260,94],'Washington, DC':[277,122],'Providence, RI':[287,100],
+'Istanbul':[540,181],'Austin, TX':[171,151],'Cambridge, MA':[291,112],'Washington, DC':[280,151],'Providence, RI':[294,119],
 'Oxford':[427,136]};
 const journeyCountry={Beijing:'china',Istanbul:'turkey','Austin, TX':'usa','Cambridge, MA':'usa','Washington, DC':'usa','Providence, RI':'usa',Paris:'france',Reims:'france',Marseille:'france',Avignon:'france',Nice:'france',Bayeux:'france',Besançon:'france',Rouen:'france',Ollioules:'france'};
 // One marker per city. Where a city has multiple activities, combine them in one detail card.
