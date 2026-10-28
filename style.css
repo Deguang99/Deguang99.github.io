@@ -61,3 +61,14 @@ nav a{font-size:15px;letter-spacing:.015em}.site-header nav{gap:24px}p{font-size
 /* v7.14: right-aligned, two-line portrait caption clear of the overlapping name card. */
 .portrait-caption{margin:13px 0 0 44%;max-width:56%;padding-right:0;text-align:right;line-height:1.65}
 @media(max-width:600px){.portrait-caption{margin:13px 0 0 auto;max-width:100%;padding-bottom:52px;text-align:right}}
+
+/* v7.18: keep the nameplate attached to the photograph at all viewport widths. */
+.portrait-photo{position:relative}
+.portrait-photo>img{display:block;width:100%;height:min(58vh,570px);min-height:390px;object-fit:cover;object-position:69% 50%;filter:saturate(.84)}
+.portrait-photo .portrait-label{bottom:-24px;left:-26px;z-index:2}
+.portrait-frame .portrait-caption{box-sizing:border-box;position:relative;margin:14px 0 0 44%;max-width:56%;padding:0;text-align:right;overflow-wrap:normal;line-height:1.65}
+@media(max-width:600px){
+  .portrait-photo>img{height:400px;min-height:0}
+  .portrait-photo .portrait-label{left:0;bottom:0;transform:translateY(18%);padding:17px 19px;max-width:85%}
+  .portrait-frame .portrait-caption{margin:40px 0 0 auto;max-width:100%;padding:0;text-align:right;font-size:11px;line-height:1.65;white-space:normal;overflow-wrap:break-word}
+}
