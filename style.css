@@ -80,7 +80,7 @@ nav a{font-size:15px;letter-spacing:.015em}.site-header nav{gap:24px}p{font-size
 .pilot-subtitle{opacity:.85;margin:.2rem 0 1.2rem}
 .pilot-stats{display:flex;gap:1rem 2rem;flex-wrap:wrap;margin:1.3rem 0;padding:1rem 0;border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18)}
 .pilot-stats span{font-size:.9rem}.pilot-stats strong{font-size:1.2rem;margin-right:.3rem}
-.pilot-release p{max-width:78ch}.pilot-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;margin-top:1.3rem}
+.pilot-release p{max-width:none;width:100%}.pilot-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;margin-top:1.3rem}
 .pilot-doi{font-size:.85rem;overflow-wrap:anywhere;opacity:.85}
 .cv-banner>.text-link{margin-top:.7rem;display:inline-block}
 @media(max-width:650px){.pilot-release{padding:1.2rem}.pilot-stats{gap:.6rem 1.2rem}}
