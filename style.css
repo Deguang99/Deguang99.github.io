@@ -84,3 +84,12 @@ nav a{font-size:15px;letter-spacing:.015em}.site-header nav{gap:24px}p{font-size
 .pilot-doi{font-size:.85rem;overflow-wrap:anywhere;opacity:.85}
 .cv-banner>.text-link{margin-top:.7rem;display:inline-block}
 @media(max-width:650px){.pilot-release{padding:1.2rem}.pilot-stats{gap:.6rem 1.2rem}}
+
+/* v7.21: balanced About columns; broad corpus description precedes pilot */
+.credentials{align-items:start}
+.credentials-left{min-width:0}
+.credentials-left .teaching-block{margin-top:2.6rem;padding-top:1.8rem}
+.credentials>section{min-width:0}
+.dataset-fields{margin:2.5rem auto 0}
+.dataset-fields+.pilot-release{margin-top:2.5rem}
+@media(max-width:900px){.credentials{grid-template-columns:1fr}.credentials-left .teaching-block{margin-bottom:0}}
